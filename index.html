@@ -26,7 +26,9 @@
                 </tr>
             </tbody>
         </table>
+        <button class="btn btn-primary" ng-click="showComposePopup()">Compose</button>
     </div>
+
 
     <div class="modal" ng-show="isPopupVisible">
         <div class="modal-header">
@@ -40,13 +42,36 @@
             <br />
             <br />
             <p>
-              {{selectedEmail.body}}
+                {{selectedEmail.body}}
             </p>
         </div>
         <div class="modal-footer">
             <a href="#" class="btn btn-primary" ng-click="closePopup()">Close</a>
         </div>
     </div>
+
+
+
+    <div class="modal" ng-show="isComposePopupVisible">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="closeComposePopup()">&times;</button>
+                <h3>Compose Email</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" placeholder="To" style="width:95%;"><br />
+                    <input type="text" placeholder="Subject" style="width:95%;"><br />
+                    <textarea style="width:95%;" rows="10"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn"ng-click="closeComposePopup()">Close</a>
+                <a href="#" class="btn btn-primary">Send</a>
+            </div>
+        </div>
+
+</div>
+
 </body>
 
 </html>

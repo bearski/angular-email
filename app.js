@@ -17,39 +17,45 @@ app.controller('emailController', [
         $scope.test = 'Hello Bear!';
 
         $scope.isPopupVisible = false;
+        $scope.isComposePopupVisible = false;
 
         $scope.showPopup = function(email) {
             $scope.isPopupVisible = true;
             $scope.selectedEmail = email;
         };
 
-        $scope.emails = [
-            { 
-                from: 'John', 
-                subject: 'I love angular', 
-                date: 'Jan 1', 
-                body: 'hello world!'
-            },
-            { 
-                from: 'Jack', 
-                subject: 'Angular and I are just friends', 
-                date: 'Feb 15', 
-                body: 'just kidding'
-            },
-            { 
-                from: 'Ember', 
-                subject: 'I hate you Angular!', 
-                date: 'Dec 8', 
-                body: 'wassup dude'
-            }
-        ];        
-
-
         $scope.closePopup = function() {
             $scope.isPopupVisible = false;
         };
 
-		// $scope.emails = emails.emails;
+
+        $scope.showComposePopup = function() {
+            $scope.isComposePopupVisible = true;
+        };
+
+        $scope.closeComposePopup = function() {
+            $scope.isComposePopupVisible = false;
+        };
+
+
+        $scope.emails = [{
+            from: 'John',
+            subject: 'I love angular',
+            date: 'Jan 1',
+            body: 'hello world!'
+        }, {
+            from: 'Jack',
+            subject: 'Angular and I are just friends',
+            date: 'Feb 15',
+            body: 'just kidding'
+        }, {
+            from: 'Ember',
+            subject: 'I hate you Angular!',
+            date: 'Dec 8',
+            body: 'wassup dude'
+        }];
+
+        // $scope.emails = emails.emails;
 
         // $scope.addPost = function() {
         //     if (!$scope.title || $scope.title === '') {
