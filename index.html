@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="public/css/bootstrap-combined.min.css"/>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap-combined.min.css" />
     <script src="public/js/jquery.min.js"></script>
     <script src="public/js/bootstrap.min.js"></script>
     <script src="public/js/angular.min.js"></script>
-
     <style type="text/css">
-      .container {
-          margin-top: 20px;
-      }
+    .container {
+        margin-top: 20px;
+    }
     </style>
 </head>
+
 <body>
     <div class="container" ng-app>
-    <table class="table table-bordered table-condensed">
-    <tbody>
-        <tr>
-            <td>{{ "Guinan Test" }}</td>
-            <td>It's an Earth drink. Prune juice.</td>
-            <td>Dec 24</td>
-        </tr>
-        <tr>
-            <td>Beverly Crusher</td>
-            <td>Captain always push themselves too hard.</td>
-            <td>Dec 23</td>
-        </tr>
-        <tr>
-            <td>Mom</td>
-            <td>Don't forget to wear clean underwear today.</td>
-            <td>Nov 22</td>
-        </tr>
-    </tbody>
-</table>
+        <table class="table table-bordered table-condensed">
+            <tbody ng-init="email={from: 'John', subject: 'I love angular', date: 'Jan 1'}">
+                <tr>
+                    <td>{{ email.from }}</td>
+                    <td>{{ email.subject }}</td>
+                    <td>{{ email.date }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
+
 </html>
