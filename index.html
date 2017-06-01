@@ -16,8 +16,12 @@
 <body>
     <div class="container" ng-app>
         <table class="table table-bordered table-condensed">
-            <tbody ng-init="email={from: 'John', subject: 'I love angular', date: 'Jan 1'}">
-                <tr>
+            <tbody ng-init="emails = [
+                              { from: 'John', subject: 'I love angular', date: 'Jan 1' },
+                              { from: 'Jack', subject: 'Angular and I are just friends', date: 'Feb 15' },
+                              { from: 'Ember', subject: 'I hate you Angular!', date: 'Dec 8' }
+                            ]">
+                <tr ng-repeat="email in emails">
                     <td>{{ email.from }}</td>
                     <td>{{ email.subject }}</td>
                     <td>{{ email.date }}</td>
