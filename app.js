@@ -12,24 +12,29 @@ app.controller('emailController', [
     '$scope',
     // 'emails',
     function($scope, emails) {
-        console.log('emailController');
+        // console.log('emailController');
 
-        $scope.test = 'Hello Bear!';
+        $scope.test = 'Hello Bearski!';
+
 
         $scope.isPopupVisible = false;
         $scope.isComposePopupVisible = false;
         $scope.composeEmail = {};
         
+
         $scope.sendEmail = function() {
+            $scope.isComposePopupVisible = false;
             alert($scope.composeEmail.to
-                + " " + $scope.composeEmail.subject 
+                + " " + $scope.composeEmail.subject
                 + " " + $scope.composeEmail.body);
         };
+
 
         $scope.showPopup = function(email) {
             $scope.isPopupVisible = true;
             $scope.selectedEmail = email;
         };
+
 
         $scope.closePopup = function() {
             $scope.isPopupVisible = false;
@@ -37,8 +42,10 @@ app.controller('emailController', [
 
 
         $scope.showComposePopup = function() {
+            $scope.composeEmail = {};
             $scope.isComposePopupVisible = true;
         };
+
 
         $scope.closeComposePopup = function() {
             $scope.isComposePopupVisible = false;
