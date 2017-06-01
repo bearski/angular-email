@@ -24,10 +24,30 @@ app.controller('emailController', [
         };
 
         $scope.emails = [
-            { from: 'John', subject: 'I love angular', date: 'Jan 1' }, 
-            { from: 'Jack', subject: 'Angular and I are just friends', date: 'Feb 15' }, 
-            { from: 'Ember', subject: 'I hate you Angular!', date: 'Dec 8' }
-        ];
+            { 
+                from: 'John', 
+                subject: 'I love angular', 
+                date: 'Jan 1', 
+                body: 'hello world!'
+            },
+            { 
+                from: 'Jack', 
+                subject: 'Angular and I are just friends', 
+                date: 'Feb 15', 
+                body: 'just kidding'
+            },
+            { 
+                from: 'Ember', 
+                subject: 'I hate you Angular!', 
+                date: 'Dec 8', 
+                body: 'wassup dude'
+            }
+        ];        
+
+
+        $scope.closePopup = function() {
+            $scope.isPopupVisible = false;
+        };
 
 		// $scope.emails = emails.emails;
 
