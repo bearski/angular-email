@@ -18,6 +18,13 @@ app.controller('emailController', [
 
         $scope.isPopupVisible = false;
         $scope.isComposePopupVisible = false;
+        $scope.composeEmail = {};
+        
+        $scope.sendEmail = function() {
+            alert($scope.composeEmail.to
+                + " " + $scope.composeEmail.subject 
+                + " " + $scope.composeEmail.body);
+        };
 
         $scope.showPopup = function(email) {
             $scope.isPopupVisible = true;
