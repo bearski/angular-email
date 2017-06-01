@@ -15,13 +15,11 @@
 </head>
 
 <body ng-app="emailApp" ng-controller="emailController">
-
     <!-- {{ test }} -->
-
     <div class="container">
         <table class="table table-bordered table-condensed">
             <tbody>
-                <tr ng-repeat="email in emails" ng-click="showPopup()">
+                <tr ng-repeat="email in emails" ng-click="showPopup(email)">
                     <td>{{ email.from }}</td>
                     <td>{{ email.subject }}</td>
                     <td>{{ email.date }}</td>
@@ -32,13 +30,13 @@
 
     <div class="modal" ng-show="isPopupVisible">
         <div class="modal-header">
-            <button type="button" class="close">×</button>
-            <h3>Subject</h3>
+            <button type="button" class="close" ng-click="closePopup()">×</button>
+            <h3>{{selectedEmail.subject}}</h3>
         </div>
         <div class="modal-body">
-            <strong>From:</strong> Steve
+            <strong>From:</strong> {{selectedEmail.from}}
             <br />
-            <strong>Date:</strong> Jan 2
+            <strong>Date:</strong> {{selectedEmail.date}}
             <br />
             <br />
             <p>
@@ -51,10 +49,9 @@
             </p>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-primary">Close</a>
+            <a href="#" class="btn btn-primary" ng-click="closePopup()">Close</a>
         </div>
     </div>
-
 </body>
 
 </html>

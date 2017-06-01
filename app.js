@@ -18,8 +18,9 @@ app.controller('emailController', [
 
         $scope.isPopupVisible = false;
 
-        $scope.showPopup = function() {
+        $scope.showPopup = function(email) {
             $scope.isPopupVisible = true;
+            $scope.selectedEmail = email;
         };
 
         $scope.emails = [
