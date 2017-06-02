@@ -56,6 +56,36 @@ app.controller('emailController', [
 
 
         $scope.forward = function() {
+            // hide the view details popup
+            $scope.isPopupVisible = false;
+
+            // create an empty composeEmail object the compose email popup is bound to
+            $scope.composeEmail = {};
+
+            // copy the data from selectedEmail into composeEmail
+            angular.copy($scope.selectedEmail, $scope.composeEmail);
+
+            // edit the body to prefix it with a line and the original email information
+            $scope.composeEmail.body = 
+                "\n-------------------------------\n" 
+                + "from: " + $scope.composeEmail.from + "\n"
+                + "sent: " + $scope.composeEmail.date + "\n"
+                + "to: " + $scope.composeEmail.to + "\n"
+                + "subject: " + $scope.composeEmail.subject + "\n"
+                + $scope.composeEmail.body;
+
+            // prefix the subject with “RE:”
+            $scope.composeEmail.subject = "FWD: " + $scope.composeEmail.subject;
+
+            // the email is going to the person who sent it to us 
+            // so populate the to with from
+            $scope.composeEmail.to = "";
+
+            // it’s coming from us
+            $scope.composeEmail.from = "me";
+
+            // show the compose email popup
+            $scope.isComposePopupVisible = true;
         };
 
 
@@ -87,10 +117,11 @@ app.controller('emailController', [
 
             // it’s coming from us
             $scope.composeEmail.from = "me";
-            
+
             // show the compose email popup
             $scope.isComposePopupVisible = true;
         };
+
 
         $scope.emails = [{
             from: 'John',
