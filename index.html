@@ -39,7 +39,7 @@
                 <tr ng-repeat="email in sentEmails" ng-click="showPopup(email)">
                     <td>{{ email.to }}</td>
                     <td>{{ email.subject }}</td>
-                    <td>{{ email.date }}</td>
+                    <td>{{ email.date | date:'MMM d' }}</td>
                 </tr>
             </tbody>
         </table>
@@ -52,8 +52,9 @@
         </div>
         <div class="modal-body">
             <strong>From:</strong> {{selectedEmail.from}}
+            <strong>To:</strong> {{selectedEmail.to}}<br />
             <br />
-            <strong>Date:</strong> {{selectedEmail.date}}
+            <strong>Date:</strong> {{selectedEmail.date | date:'MMM d'}}
             <br />
             <br />
             <p>

@@ -22,9 +22,12 @@ app.controller('emailController', [
         $scope.composeEmail = {};
         $scope.activeTab = "inbox";
         $scope.sentEmails = [];
-        
+
 
         $scope.sendEmail = function() {
+            $scope.composeEmail.date = new Date();
+            $scope.composeEmail.from = 'me';
+
             $scope.isComposePopupVisible = false;
             $scope.sentEmails.push($scope.composeEmail);
         };
@@ -54,16 +57,19 @@ app.controller('emailController', [
 
         $scope.emails = [{
             from: 'John',
+            to: 'me',
             subject: 'I love angular',
             date: 'Jan 1',
             body: 'hello world!'
         }, {
-            from: 'Jack',
+            from: 'Jack', 
+            to: 'me',
             subject: 'Angular and I are just friends',
             date: 'Feb 15',
             body: 'just kidding'
         }, {
-            from: 'Ember',
+            from: 'Ember', 
+            to: 'me',
             subject: 'I hate you Angular!',
             date: 'Dec 8',
             body: 'wassup dude'
