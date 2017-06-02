@@ -21,13 +21,12 @@ app.controller('emailController', [
         $scope.isComposePopupVisible = false;
         $scope.composeEmail = {};
         $scope.activeTab = "inbox";
+        $scope.sentEmails = [];
         
 
         $scope.sendEmail = function() {
             $scope.isComposePopupVisible = false;
-            alert($scope.composeEmail.to
-                + " " + $scope.composeEmail.subject
-                + " " + $scope.composeEmail.body);
+            $scope.sentEmails.push($scope.composeEmail);
         };
 
 

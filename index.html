@@ -18,13 +18,26 @@
     <div class="container">
         <!-- {{ test }} -->
         <ul class="nav nav-tabs">
-            <li><a ng-click="activeTab='inbox'">Inbox</a></li>
-            <li><a ng-click="activeTab='sent'">Sent</a></li>
+            <li ng-class="{active: activeTab == 'inbox'}">
+                <a ng-click="activeTab='inbox'">Inbox</a>
+            </li>
+            <li ng-class="{active: activeTab == 'sent'}">
+                <a ng-click="activeTab='sent'">Sent</a>
+            </li>
         </ul>
         <table ng-show="activeTab=='inbox'" class="table table-bordered table-condensed">
             <tbody>
                 <tr ng-repeat="email in emails" ng-click="showPopup(email)">
                     <td>{{ email.from }}</td>
+                    <td>{{ email.subject }}</td>
+                    <td>{{ email.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table ng-show="activeTab=='sent'" class="table table-bordered table-condensed">
+            <tbody>
+                <tr ng-repeat="email in sentEmails" ng-click="showPopup(email)">
+                    <td>{{ email.to }}</td>
                     <td>{{ email.subject }}</td>
                     <td>{{ email.date }}</td>
                 </tr>
