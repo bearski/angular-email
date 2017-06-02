@@ -15,9 +15,13 @@
 </head>
 
 <body ng-app="emailApp" ng-controller="emailController">
-    <!-- {{ test }} -->
     <div class="container">
-        <table class="table table-bordered table-condensed">
+        <!-- {{ test }} -->
+        <ul class="nav nav-tabs">
+            <li><a ng-click="activeTab='inbox'">Inbox</a></li>
+            <li><a ng-click="activeTab='sent'">Sent</a></li>
+        </ul>
+        <table ng-show="activeTab=='inbox'" class="table table-bordered table-condensed">
             <tbody>
                 <tr ng-repeat="email in emails" ng-click="showPopup(email)">
                     <td>{{ email.from }}</td>
@@ -28,8 +32,6 @@
         </table>
         <button class="btn btn-primary" ng-click="showComposePopup()">Compose</button>
     </div>
-
-
     <div class="modal" ng-show="isPopupVisible">
         <div class="modal-header">
             <button type="button" class="close" ng-click="closePopup()">×</button>
@@ -49,9 +51,6 @@
             <a href="#" class="btn btn-primary" ng-click="closePopup()">Close</a>
         </div>
     </div>
-
-
-
     <div class="modal" ng-show="isComposePopupVisible">
         <div class="modal-header">
             <button type="button" class="close" ng-click="closeComposePopup()">&times;</button>
@@ -59,22 +58,19 @@
         </div>
         <div class="modal-body">
             <form>
-                <input type="text" placeholder="To" style="width:95%;"
-                    ng-model="composeEmail.to"><br />
-                <input type="text" placeholder="Subject" style="width:95%;"
-                    ng-model="composeEmail.subject"><br />
-                <textarea style="width:95%;" rows="10" 
-                    ng-model="composeEmail.body"></textarea>
+                <input type="text" placeholder="To" style="width:95%;" ng-model="composeEmail.to">
+                <br />
+                <input type="text" placeholder="Subject" style="width:95%;" ng-model="composeEmail.subject">
+                <br />
+                <textarea style="width:95%;" rows="10" ng-model="composeEmail.body"></textarea>
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn"ng-click="closeComposePopup()">Close</a>
+            <a href="#" class="btn" ng-click="closeComposePopup()">Close</a>
             <a href="#" class="btn btn-primary" ng-click="sendEmail()">Send</a>
         </div>
     </div>
-
-</div>
-
+    </div>
 </body>
 
 </html>

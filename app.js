@@ -20,6 +20,7 @@ app.controller('emailController', [
         $scope.isPopupVisible = false;
         $scope.isComposePopupVisible = false;
         $scope.composeEmail = {};
+        $scope.activeTab = "inbox";
         
 
         $scope.sendEmail = function() {
