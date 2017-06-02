@@ -29,7 +29,8 @@ app.controller('emailController', [
             $scope.composeEmail.from = 'me';
 
             $scope.isComposePopupVisible = false;
-            $scope.sentEmails.push($scope.composeEmail);
+            //$scope.sentEmails.push($scope.composeEmail); // OLD
+            $scope.sentEmails.splice(0,0,$scope.composeEmail); // NEW
         };
 
 
